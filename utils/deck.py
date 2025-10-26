@@ -1,8 +1,10 @@
 import random
 
 def create_card(rank:str,suite:str) -> dict:
-    my_dict = {"rank" : rank, "suite" : suite, "value": rank} ### needs value
-    return my_dict
+   cards = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
+   value = cards.index(rank) + 2
+   return {"rank" : rank, "suite" : suite, "value" : value}
+
 
 def compare_cards(p1_card:dict, p2_card:dict) -> str:
     current_round_result = ""
