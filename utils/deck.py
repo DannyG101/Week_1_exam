@@ -5,7 +5,6 @@ def create_card(rank:str,suite:str) -> dict:
    value = cards.index(rank) + 2
    return {"rank" : rank, "suite" : suite, "value" : value}
 
-
 def compare_cards(p1_card:dict, p2_card:dict) -> str:
     current_round_result = ""
     if p1_card["value"] > p2_card["value"]:
@@ -18,16 +17,13 @@ def compare_cards(p1_card:dict, p2_card:dict) -> str:
     return current_round_result
 
 def create_deck() -> list[dict]:
-    deck = []
-    for i in range(1,10):
-        deck.append({"rank" : i, "suit" : "C", "value" : i})
-    for i in range(1, 10):
-        deck.append({"rank": i, "suit": "S", "value": i})
-    for i in range(1, 10):
-        deck.append({"rank": i, "suit": "D", "value": i})
-    for i in range(1, 10):
-        deck.append({"rank": i, "suit": "H", "value": i})
-    return deck
+    cards = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
+    suits = ["D", "H", "S", "C"]
+    full_deck = []
+    for suit in suits:
+        for card in cards:
+            full_deck.append(create_card(card, suit))
+    return full_deck
 
 def shuffle(deck:list[dict]) -> list[dict]:
     mix_count = 0
@@ -40,3 +36,5 @@ def shuffle(deck:list[dict]) -> list[dict]:
         else:
             continue
     return deck
+
+
